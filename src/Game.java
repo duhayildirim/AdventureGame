@@ -35,7 +35,10 @@ public class Game {
                     System.out.println("Güvenli eve yönlendiriliyorsun...");
                     location = new SafeHouse(player);
             }
-            location.onLocation();
+            if (!location.onLocation()) {
+                System.out.println("Öldün !");
+                break;
+            }
         }
 
     }
