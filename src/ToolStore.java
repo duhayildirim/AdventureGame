@@ -79,6 +79,17 @@ public class ToolStore extends NormalLocation {
             choice = input.nextInt();
         }
 
+        Armor selectedArmor = Armor.getArmorObjById(choice);
+        if (selectedArmor != null) {
+            if (selectedArmor.getPrice() > this.getPlayer().getMoney()) {
+                System.out.println("Bu zırhı satın alabilmek için yeterli paranız bulunmamaktadır.");
+            } else {
+                System.out.println(selectedArmor.getName() + " seviye zırh envantere eklendi.");
+                int remain = this.getPlayer().getMoney() - selectedArmor.getPrice();
+                this.getPlayer().setMoney(remain);
+                System.out.println("Kalan para: " + this.getPlayer().getMoney());
+            }
+        }
 
     }
 }

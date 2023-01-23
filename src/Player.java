@@ -6,6 +6,7 @@ public class Player {
     private int money;
     private String characterName;
     private String name;
+    private Inventory inventory;
     private Scanner input = new Scanner(System.in);
 
     public Player(String name) {
@@ -86,5 +87,13 @@ public class Player {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    public void setInventory(Inventory inventory) {
+        this.inventory = inventory;
     }
 }
