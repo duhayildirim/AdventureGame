@@ -23,7 +23,7 @@ public class Player {
                     c.getMoney() + ")");
         }
         System.out.println("----------------------------------------");
-        System.out.println("Samuray için 1 \nOkçu için 2 \nŞövalye için 3 \nŞimdi bir rakam söyle: ");
+        System.out.println("Samuray - 1 \nOkçu - 2 \nŞövalye - 3 \nŞimdi bir rakam söyle: ");
         int choice = input.nextInt();
 
         switch (choice) {
