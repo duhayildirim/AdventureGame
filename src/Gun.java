@@ -11,13 +11,23 @@ public class Gun {
         this.price = price;
     }
 
-    public static Gun[] gun() {
+    public static Gun[] gunList() {
         Gun[] gunList = new Gun[3];
         gunList[0] = new Gun("Tabanca", 1, 2, 25);
         gunList[1] = new Gun("Kılıç", 2, 3, 35);
         gunList[2] = new Gun("Tüfek", 3, 7, 45);
 
         return gunList;
+    }
+
+    public static Gun getGunObjById(int id) {
+        for (Gun g : Gun.gunList()) {
+            if (g.getId() == id) {
+                return g;
+            }
+        }
+
+        return null;
     }
 
     public String getName() {
