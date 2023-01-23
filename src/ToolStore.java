@@ -19,9 +19,11 @@ public class ToolStore extends NormalLocation {
         switch (choice) {
             case 1:
                 printGuns();
+                buyGun();
                 break;
             case 2:
                 printArmors();
+                buyArmor();
                 break;
             case 3:
                 System.out.println("Yine bekleriz...");
@@ -39,6 +41,9 @@ public class ToolStore extends NormalLocation {
                     gun.getDamage() + ", fiyat: " +
                     gun.getPrice() + ")");
         }
+    }
+
+    public void buyGun() {
         System.out.println("----------------------------");
         System.out.println("Satın al: ");
         int choice = input.nextInt();
@@ -56,9 +61,9 @@ public class ToolStore extends NormalLocation {
                 int remain = this.getPlayer().getMoney() - selectedGun.getPrice();
                 this.getPlayer().setMoney(remain);
                 System.out.println("Kalan para: " + this.getPlayer().getMoney());
+                this.getPlayer().getInventory().setGun(selectedGun);
             }
         }
-
     }
 
     public void printArmors() {
@@ -70,6 +75,9 @@ public class ToolStore extends NormalLocation {
                     " (engelleme: " + armor.getBlock() +
                     ", fiyat: " + armor.getPrice() + ")");
         }
+    }
+
+    public void buyArmor() {
         System.out.println("----------------------------");
         System.out.println("Satın al: ");
         int choice = input.nextInt();
@@ -88,8 +96,8 @@ public class ToolStore extends NormalLocation {
                 int remain = this.getPlayer().getMoney() - selectedArmor.getPrice();
                 this.getPlayer().setMoney(remain);
                 System.out.println("Kalan para: " + this.getPlayer().getMoney());
+                this.getPlayer().getInventory().setArmor(selectedArmor);
             }
         }
-
     }
 }

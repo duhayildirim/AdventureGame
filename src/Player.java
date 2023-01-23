@@ -11,6 +11,7 @@ public class Player {
 
     public Player(String name) {
         this.name = name;
+        this.inventory = new Inventory();
     }
 
     public void selectChar() {
@@ -44,13 +45,24 @@ public class Player {
     }
 
     public void initPlayer(Character character) {
+        this.setCharacterName(character.getName());
         this.setDamage(character.getDamage());
         this.setHealth(character.getHealth());
         this.setMoney(character.getMoney());
     }
 
+    public void printInfo() {
+        System.out.println(this.getName() + " -" + this.getCharacterName() + "-" + " (Silahınız: " +
+                this.getInventory().getGun().getName() + ", Saldırı gücü: " +
+                this.getDamage() + ", Zırhınız: " +
+                this.getInventory().getArmor().getName() + ", Bloklama gücü: " +
+                this.getInventory().getArmor().getBlock() + ", Sağlık durumu: " +
+                this.getHealth() + ", Para durumu: " +
+                this.getMoney() + ")");
+    }
+
     public int getDamage() {
-        return this.damage;
+        return this.damage + this.getInventory().getGun().getDamage();
     }
 
     public void setDamage(int damage) {
@@ -90,7 +102,7 @@ public class Player {
     }
 
     public Inventory getInventory() {
-        return inventory;
+        return this.inventory;
     }
 
     public void setInventory(Inventory inventory) {

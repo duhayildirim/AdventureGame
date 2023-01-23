@@ -15,6 +15,8 @@ public class Game {
 
         while (true) {
             System.out.println("----------------------------------------");
+            player.printInfo();
+            System.out.println("----------------------------------------");
             System.out.println("Bölgeler: ");
             System.out.println("Güvenli Ev - 1 " +
                     "(Canınız yenilenir. Canavarlar buraya ulaşamaz.)");
