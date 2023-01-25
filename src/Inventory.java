@@ -3,8 +3,8 @@ public class Inventory {
     private Armor armor;
 
     public Inventory() {
-        this.gun = new Gun("Yumruk", 0, 1, 0);
-        this.armor = new Armor("Çıplak", 0, 0, 0);
+        this.gun = new Gun("Yumruk", -1, 1, 0);
+        this.armor = new Armor("Çıplak", -1, 0, 0);
     }
 
     public Gun getGun() {

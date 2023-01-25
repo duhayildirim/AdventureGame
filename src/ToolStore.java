@@ -7,27 +7,34 @@ public class ToolStore extends NormalLocation {
     public boolean onLocation() {
         System.out.println("----------------------------");
         System.out.println("Mağazaya hoşgeldin.");
-        System.out.println("Silahlar - 1");
-        System.out.println("Zırhlar - 2");
-        System.out.println("Çıkış Yap - 3");
-        System.out.println("Seçiminiz :");
-        int choice = input.nextInt();
-        while (choice < 0 || choice > 3) {
-            System.out.println("Yanlış seçim. Tekrar dene:");
-            choice = input.nextInt();
-        }
-        switch (choice) {
-            case 1:
-                printGuns();
-                buyGun();
-                break;
-            case 2:
-                printArmors();
-                buyArmor();
-                break;
-            case 3:
-                System.out.println("Yine bekleriz...");
-                break;
+        boolean showMenu = true;
+        while (showMenu) {
+            System.out.println("Silahlar - 1");
+            System.out.println("Zırhlar - 2");
+            System.out.println("Çıkış Yap - 3");
+            System.out.println("Seçiminiz :");
+            int choice = input.nextInt();
+            while (choice < 0 || choice > 3) {
+                System.out.println("Yanlış seçim. Tekrar dene:");
+                choice = input.nextInt();
+            }
+            if (choice != 0) {
+                switch (choice) {
+                    case 1:
+                        printGuns();
+                        buyGun();
+                        break;
+                    case 2:
+                        printArmors();
+                        buyArmor();
+                        break;
+                    case 3:
+                        System.out.println("Yine bekleriz...");
+                        showMenu = false;
+                        break;
+                }
+            }
+
         }
         return true;
     }
@@ -41,6 +48,7 @@ public class ToolStore extends NormalLocation {
                     gun.getDamage() + ", fiyat: " +
                     gun.getPrice() + ")");
         }
+        System.out.println("0 - Çıkış");
     }
 
     public void buyGun() {
@@ -75,6 +83,7 @@ public class ToolStore extends NormalLocation {
                     " (engelleme: " + armor.getBlock() +
                     ", fiyat: " + armor.getPrice() + ")");
         }
+        System.out.println("0 - Çıkış");
     }
 
     public void buyArmor() {

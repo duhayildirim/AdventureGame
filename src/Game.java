@@ -22,6 +22,7 @@ public class Game {
                     "(Canınız yenilenir. Canavarlar buraya ulaşamaz.)");
             System.out.println("Mağaza - 2 " +
                     "(Silah veya zırh satın alabilirsiniz.)");
+            System.out.println("Oyundan Çık - 3");
             System.out.println("----------------------------------------");
             System.out.println("Gitmek istediğiniz bölgeyi seçin:");
             int selectLocation = input.nextInt();
@@ -33,9 +34,16 @@ public class Game {
                 case 2:
                     location = new ToolStore(player);
                     break;
+                case 3:
+                    location = null;
+                    break;
                 default:
                     System.out.println("Güvenli eve yönlendiriliyorsun...");
                     location = new SafeHouse(player);
+            }
+            if (location == null) {
+                System.out.println("Oyun bitti. Yine bekleriz.");
+                break;
             }
             if (!location.onLocation()) {
                 System.out.println("Öldün !");
