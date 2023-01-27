@@ -12,7 +12,7 @@ public abstract class BattleLocation extends Location {
     public boolean onLocation() {
         System.out.println("#####################################");
         System.out.println("Şu an buradasınız: " + this.getName());
-        System.out.println(this.getMonster().getName() + "kokunu aldı. Dikkatli olmalısın.");
+        System.out.println(this.getMonster().getName() + " kokunu aldı. Dikkatli olmalısın.");
         System.out.println("#####################################");
         return true;
     }
