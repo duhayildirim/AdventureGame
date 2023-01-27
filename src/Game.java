@@ -23,8 +23,12 @@ public class Game {
                     "(Canınız yenilenir. Canavarlar buraya ulaşamaz.)");
             System.out.println("Mağaza - 2 " +
                     "(Silah veya zırh satın alabilirsiniz.)");
-            System.out.println("Mağaraya gir - 3 " +
-                    "(İçeride canavarla karşılaşabilirsin.)");
+            System.out.println("Ormana git - 3 " +
+                    "(Ormanın derinliklerinde canavarla karşılaşabilirsin.)");
+            System.out.println("Mağaraya gir - 4 " +
+                    "(Mağaranın içinde canavarlar olabilir.)");
+            System.out.println("Nehire in - 5 " +
+                    "(Nehirde seni canavarlar bekliyor olabilir.)");
             System.out.println("----------------------------------------");
             System.out.println("Gitmek istediğiniz bölgeyi seçin:");
             int selectLocation = input.nextInt();
@@ -40,7 +44,13 @@ public class Game {
                     location = new ToolStore(player);
                     break;
                 case 3:
+                    location = new Forest(player);
+                    break;
+                case 4:
                     location = new Cave(player);
+                    break;
+                case 5:
+                    location = new River(player);
                     break;
                 default:
                     System.out.println("Güvenli eve yönlendiriliyorsun...");

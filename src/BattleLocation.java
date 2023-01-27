@@ -1,20 +1,38 @@
+import java.util.Random;
+import java.util.Scanner;
+
 public abstract class BattleLocation extends Location {
     private Monster monster;
     private String award;
+    private int maxMonster;
 
-    public BattleLocation(Player player, String name, Monster monster, String award) {
+    public BattleLocation(Player player, String name, Monster monster, String award, int maxMonster) {
         super(player, name);
         this.monster = monster;
         this.award = award;
+        this.maxMonster = maxMonster;
     }
 
     @Override
     public boolean onLocation() {
+        int rndMonster = this.randomMonsterNumber();
         System.out.println("#####################################");
         System.out.println("Şu an buradasınız: " + this.getName());
         System.out.println(this.getMonster().getName() + " kokunu aldı. Dikkatli olmalısın.");
+        System.out.println("Burada " + rndMonster + " " + this.getMonster().getName() + " yaşıyor.");
         System.out.println("#####################################");
+        System.out.println("SAVAŞ ya da GERİ ÇEKİL :");
+        String select = input.nextLine();
+        select = select.toLowerCase().replace(" ", "");
+        if (select.equals("savaş")) {
+            System.out.println("sikiş başladı");
+        }
         return true;
+    }
+
+    public int randomMonsterNumber() {
+        Random r = new Random();
+        return r.nextInt(this.getMaxMonster()) + 1;
     }
 
     public Monster getMonster() {
@@ -31,5 +49,13 @@ public abstract class BattleLocation extends Location {
 
     public void setAward(String award) {
         this.award = award;
+    }
+
+    public int getMaxMonster() {
+        return maxMonster;
+    }
+
+    public void setMaxMonster(int maxMonster) {
+        this.maxMonster = maxMonster;
     }
 }
