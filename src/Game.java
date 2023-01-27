@@ -18,16 +18,21 @@ public class Game {
             player.printInfo();
             System.out.println("----------------------------------------");
             System.out.println("Bölgeler: ");
+            System.out.println("Oyundan Çık - 0");
             System.out.println("Güvenli Ev - 1 " +
                     "(Canınız yenilenir. Canavarlar buraya ulaşamaz.)");
             System.out.println("Mağaza - 2 " +
                     "(Silah veya zırh satın alabilirsiniz.)");
-            System.out.println("Oyundan Çık - 3");
+            System.out.println("Mağaraya gir - 3 " +
+                    "(İçeride canavarla karşılaşabilirsin.)");
             System.out.println("----------------------------------------");
             System.out.println("Gitmek istediğiniz bölgeyi seçin:");
             int selectLocation = input.nextInt();
 
             switch (selectLocation) {
+                case 0:
+                    location = null;
+                    break;
                 case 1:
                     location = new SafeHouse(player);
                     break;
@@ -35,7 +40,7 @@ public class Game {
                     location = new ToolStore(player);
                     break;
                 case 3:
-                    location = null;
+                    location = new Cave(player);
                     break;
                 default:
                     System.out.println("Güvenli eve yönlendiriliyorsun...");
