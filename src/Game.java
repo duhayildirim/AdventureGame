@@ -61,7 +61,7 @@ public class Game {
                 break;
             }
             if (!location.onLocation()) {
-                System.out.println("Öldün !");
+                System.out.println("Öldün ! Oyun bitti.");
                 break;
             }
         }
