@@ -25,11 +25,34 @@ public abstract class BattleLocation extends Location {
         String select = input.nextLine();
         select = select.toLowerCase().replace(" ", "");
         if (select.equals("savaş")) {
-            System.out.println("sikiş başladı");
+
         }
         return true;
     }
 
+    public boolean combat(int monsterNumber) {
+        for (int i = 1; i <= monsterNumber; i++) {
+            this.playerStatus();
+            this.monsterStatus();
+        }
+        return true;
+    }
+
+    public void playerStatus() {
+        System.out.println("****************************************");
+        System.out.println(this.getPlayer().getCharacterName() + " Durumu:");
+        System.out.println("Sağlık : " + this.getPlayer().getHealth());
+        System.out.println("Saldırı gücü : " + this.getPlayer().getTotalDamage());
+        System.out.println("Savunma gücü : " + this.getPlayer().getInventory().getArmor().getBlock());
+    }
+
+    public void monsterStatus() {
+        System.out.println("****************************************");
+        System.out.println(this.getMonster().getName() + " Durumu:");
+        System.out.println("Sağlık : " + this.getMonster().getHealth());
+        System.out.println("Saldırı gücü : " + this.getMonster().getDamage());
+        System.out.println(this.getMonster().getName()+ " canı :" + this.getMonster().getHealth());
+    }
     public int randomMonsterNumber() {
         Random r = new Random();
         return r.nextInt(this.getMaxMonster()) + 1;
