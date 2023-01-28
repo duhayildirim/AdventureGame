@@ -6,13 +6,11 @@ public class Game {
     public void start() {
         System.out.println("Macera oyununa hoşgeldiniz:");
         System.out.println("Karakter adını giriniz: ");
-//        String name = input.nextLine();
-        Player player = new Player("Duha");
+        String name = input.nextLine();
+        Player player = new Player(name);
         System.out.println("Hoşgeldin " + player.getName() + ". Issız bir adada tek başınasın !");
-
         player.selectChar();
         Location location;
-
         while (true) {
             System.out.println("----------------------------------------");
             player.printInfo();

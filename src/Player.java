@@ -3,6 +3,7 @@ import java.util.Scanner;
 public class Player {
     private int damage;
     private int health;
+    private int defaultHealth;
     private int money;
     private String characterName;
     private String name;
@@ -48,6 +49,7 @@ public class Player {
         this.setCharacterName(character.getName());
         this.setDamage(character.getDamage());
         this.setHealth(character.getHealth());
+        this.setDefaultHealth(character.getHealth());
         this.setMoney(character.getMoney());
     }
 
@@ -64,6 +66,7 @@ public class Player {
     public int getTotalDamage() {
         return this.damage + this.getInventory().getGun().getDamage();
     }
+
     public int getDamage() {
         return this.damage;
     }
@@ -78,6 +81,14 @@ public class Player {
 
     public void setHealth(int health) {
         this.health = health;
+    }
+
+    public int getDefaultHealth() {
+        return defaultHealth;
+    }
+
+    public void setDefaultHealth(int defaultHealth) {
+        this.defaultHealth = defaultHealth;
     }
 
     public int getMoney() {
