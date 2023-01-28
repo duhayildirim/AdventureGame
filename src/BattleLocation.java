@@ -34,6 +34,17 @@ public abstract class BattleLocation extends Location {
         for (int i = 1; i <= monsterNumber; i++) {
             this.playerStatus();
             this.monsterStatus();
+            while (this.getPlayer().getHealth() > 0 && this.getMonster().getHealth() > 0) {
+                System.out.println("SALDIR veya KAÇ : ");
+                String choice = input.nextLine();
+                choice = choice.toLowerCase().trim().replace(" ", "");
+                if (choice.equals("saldır") || choice.equals("saldir")) {
+                    int monsterHealth = this.monster.getHealth();
+                    int attack = this.getPlayer().getTotalDamage();
+                    this.monster.setHealth(monsterHealth - attack);
+                    afterHit();
+                }
+            }
         }
         return true;
     }
@@ -51,8 +62,15 @@ public abstract class BattleLocation extends Location {
         System.out.println(this.getMonster().getName() + " Durumu:");
         System.out.println("Sağlık : " + this.getMonster().getHealth());
         System.out.println("Saldırı gücü : " + this.getMonster().getDamage());
-        System.out.println(this.getMonster().getName()+ " canı :" + this.getMonster().getHealth());
+        System.out.println(this.getMonster().getName() + " canı :" + this.getMonster().getHealth());
     }
+
+    public void afterHit() {
+        System.out.println("Canınız: " + this.getPlayer().getHealth());
+        System.out.println(this.getMonster().getName() + " canı :" + this.getMonster().getHealth());
+        System.out.println();
+    }
+
     public int randomMonsterNumber() {
         Random r = new Random();
         return r.nextInt(this.getMaxMonster()) + 1;
